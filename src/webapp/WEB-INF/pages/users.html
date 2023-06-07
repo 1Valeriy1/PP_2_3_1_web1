@@ -8,12 +8,14 @@
       table, th, td {
 border: 1px solid black;
 border-collapse: collapse;
-width:200px;
+width:500px;
 height:30px;
 }
     </style>
 </head>
 <body>
+
+<a th:href = "@{/add}" class="btn btn-primary btn-sm mb-3"> Add User </a>
 
 <table>
     <tr>
@@ -21,7 +23,8 @@ height:30px;
         <th>FirstName</th>
         <th>LastName</th>
         <th>email</th>
-        <th>Action</th>
+        <th colspan="3">Action</th>
+
     </tr>
 
     <tr th:each="user : ${users}">
@@ -29,11 +32,8 @@ height:30px;
         <td th:utext="${user.getFirstName()}">FirstName</td>
         <td th:utext="${user.getLastName()}">LastName</td>
         <td th:utext="${user.getEmail()}">email</td>
-        <td>
-            <a href="/edit?id=${user.getId()}">Edit</a>
-
-            <a href="/delete?id=${user.getId()}">Delete</a>
-        </td>
+        <td><a th:href="@{/update/{id}(id=${user.getId()})}">Update</a></td>
+        <td><a th:href="@{/delete/{id}(id=${user.getId()})}">Delete</a>
     </tr>
 
 </table>

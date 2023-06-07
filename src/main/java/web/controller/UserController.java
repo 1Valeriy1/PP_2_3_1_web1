@@ -20,22 +20,28 @@ public class UserController {
         return "users";
     }
 //сохранение юзера
-//    @PutMapping("/")
-//    public String newUserForm(Model model, @RequestBody User user) {
-//        model.addAttribute("save", service.listUsers());
-//        return "save";
-//    }
-//    // изменеие юзера
-//    @PutMapping("/{id}")
-//    public String updateUser(@PathVariable("id") Long id, Model model){
-//        model.addAttribute();
-//        return null;
-//    }
-//    // удаление юзера
-//    @DeleteMapping("/{id}")
-//    public String deleteUserbyId(@PathVariable("id") Long id, Model model){
-//        model.addAttribute("delete", service.);
-//        return "delete";
-//    }
+    @GetMapping("/add")
+    public String add(Model model) {
+        model.addAttribute("user", new User());
+        return "add";
+    }
+    @PostMapping()
+    public String save(@ModelAttribute("user") User user) {
+        service.add(user);
+        return "redirect:/";
+    }
+    // изменеие юзера
+    @GetMapping("/update/{id}")
+    public String Update(@PathVariable( value = "id") long id, Model model) {
+        User user = service.getUserById(id);
+        model.addAttribute("user", user);
+        return "update";
+    }
+    // удаление юзера
+    @GetMapping("/delete/{id}")
+    public String deleteUserById(@PathVariable("id") Long id){
+        this.service.delete(id);
+        return "redirect:/";
+    }
 }
 
