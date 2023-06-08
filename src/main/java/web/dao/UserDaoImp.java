@@ -8,49 +8,37 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
-@Transactional
 public class UserDaoImp implements UserDao {
 
-   @Autowired
-   private EntityManagerFactory emf;
+   @PersistenceContext
+   private EntityManager em;
    // добавление юзера
    @Override
    public void add(User user) {
-      EntityManager em = emf.createEntityManager();
-      em.getTransaction().begin();
       em.merge(user);
-      em.getTransaction().commit();
    }
 
    // список юзеров
    @Override
    @SuppressWarnings("unchecked")
    public List<User> listUsers() {
-      TypedQuery<User> query= (TypedQuery<User>) emf.createEntityManager().createQuery("from User");
+      TypedQuery<User> query= (TypedQuery<User>) em.createQuery("from User");
       return query.getResultList();
-   }
-
-   // изменение юзера
-   @Override
-   public void edit(long id, User user) {
-      emf.createEntityManager().persist(user);
    }
 
    @Override
    public User getUserById(long id) {
-      return emf.createEntityManager().find(User.class, id);
+      return em.find(User.class, id);
    }
 
    //удаление юзера
    @Override
    public void delete(long id) {
-      EntityManager em = emf.createEntityManager();
-      em.getTransaction().begin();
       em.remove(em.find(User.class, id));
-      em.getTransaction().commit();
    }
 }

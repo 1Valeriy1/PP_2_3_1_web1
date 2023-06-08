@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/web/MainApp.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/web/config/AppConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/web/config/MySpringMvcDispatcherSerlvetIntitializer.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/web/dao/UserDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/web/dao/UserDaoImp.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/web/models/Car.java" charset="UTF-8" />

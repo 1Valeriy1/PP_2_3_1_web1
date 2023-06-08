@@ -3,7 +3,6 @@ package web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import web.models.User;
 import web.service.UserService;
@@ -32,14 +31,14 @@ public class UserController {
     }
 
     // изменеие юзера
-    @GetMapping("/update/{id}")
+    @PutMapping("/find/{id}")
     public String find(@PathVariable( value = "id") long id, Model model) {
         User user = service.getUserById(id);
         model.addAttribute("user", user);
         return "update";
     }
     // удаление юзера
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteUserById(@PathVariable("id") Long id){
         this.service.delete(id);
         return "redirect:/";

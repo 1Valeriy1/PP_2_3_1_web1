@@ -15,7 +15,7 @@ height:30px;
 </head>
 <body>
 
-<a th:href = "@{/add}" class="btn btn-primary btn-sm mb-3"> Add User </a>
+<a th:href = "@{/add}" > Add User </a>
 
 <table>
     <tr>
@@ -23,7 +23,7 @@ height:30px;
         <th>FirstName</th>
         <th>LastName</th>
         <th>email</th>
-        <th colspan="3">Action</th>
+        <th colspan="2">Action</th>
 
     </tr>
 
@@ -32,8 +32,12 @@ height:30px;
         <td th:utext="${user.getFirstName()}">FirstName</td>
         <td th:utext="${user.getLastName()}">LastName</td>
         <td th:utext="${user.getEmail()}">email</td>
-        <td><a th:href="@{/update/{id}(id=${user.getId()})}">Update</a></td>
-        <td><a th:href="@{/delete/{id}(id=${user.getId()})}">Delete</a>
+        <td><form th:method="PUT" th:action="@{/find/{id}(id=${user.getId()})}">
+            <input type="submit" value="Update">
+        </form></td>
+        <td><form th:method="DELETE" th:action="@{/delete/{id}(id=${user.getId()})}">
+            <input type="submit" value="Delete">
+        </form></td>
     </tr>
 
 </table>

@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserServiceImp implements UserService {
 
    @Autowired
    private UserDao userDao;
 
+   @Transactional
    @Override
    public void add(User user) {
       userDao.add(user);
@@ -26,6 +26,7 @@ public class UserServiceImp implements UserService {
       return userDao.listUsers();
    }
 
+   @Transactional
    @Override
    public void delete(long id) {
       userDao.delete(id);
@@ -35,11 +36,5 @@ public class UserServiceImp implements UserService {
    public User getUserById(long id) {
       return userDao.getUserById(id);
    }
-
-   @Override
-   public void edit(long id, User user) {
-      userDao.edit(id, user);
-   }
-
 
 }

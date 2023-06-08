@@ -10,8 +10,6 @@ public interface UserService {
 
     void delete(long id);
 
-    void edit(long id, User user);
-
     User getUserById(long id);
 
 
