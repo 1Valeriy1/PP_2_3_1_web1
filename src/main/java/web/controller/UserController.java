@@ -25,14 +25,15 @@ public class UserController {
         model.addAttribute("user", new User());
         return "add";
     }
-    @PostMapping()
+    @PostMapping("/save")
     public String save(@ModelAttribute("user") User user) {
         service.add(user);
         return "redirect:/";
     }
+
     // изменеие юзера
     @GetMapping("/update/{id}")
-    public String Update(@PathVariable( value = "id") long id, Model model) {
+    public String find(@PathVariable( value = "id") long id, Model model) {
         User user = service.getUserById(id);
         model.addAttribute("user", user);
         return "update";

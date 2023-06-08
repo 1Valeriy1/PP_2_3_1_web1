@@ -9,7 +9,7 @@
 <div>
   <h2>Save User</h2>
 
-  <form action="#" th:action="@{/}" th:object="${user}"
+  <form action="#" th:action="@{/save}" th:object="${user}"
         method="POST">
     <input type="text" th:field="*{firstName}"
            placeholder="Name" >

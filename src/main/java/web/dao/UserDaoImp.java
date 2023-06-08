@@ -22,7 +22,7 @@ public class UserDaoImp implements UserDao {
    public void add(User user) {
       EntityManager em = emf.createEntityManager();
       em.getTransaction().begin();
-      em.persist(user);
+      em.merge(user);
       em.getTransaction().commit();
    }
 

@@ -6,15 +6,15 @@
 <body>
 <div>
   <h2>Update User</h2>
-  <form action="#" th:action="@{/}" th:object="${user}"
+  <form action="#" th:action="@{/save}" th:object="${user}"
         method="POST">
 
     <input type="hidden" th:field="*{id}" />
 
     <input type="text" th:field="*{firstName}"
-           placeholder="Course name">
+           placeholder="Name">
     <input type="text" th:field="*{lastName}"
-           placeholder="Course instructor">
+           placeholder="LastName">
     <input type="text" th:field="*{email}"
            placeholder="Email">
     <button type="submit"> Update User </button>
