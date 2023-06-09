@@ -20,6 +20,11 @@ public class UserDaoImp implements UserDao {
    // добавление юзера
    @Override
    public void add(User user) {
+      em.persist(user);
+   }
+
+   @Override
+   public void upd(User user) {
       em.merge(user);
    }
 

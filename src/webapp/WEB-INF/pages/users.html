@@ -32,7 +32,7 @@ height:30px;
         <td th:utext="${user.getFirstName()}">FirstName</td>
         <td th:utext="${user.getLastName()}">LastName</td>
         <td th:utext="${user.getEmail()}">email</td>
-        <td><form th:method="PUT" th:action="@{/find/{id}(id=${user.getId()})}">
+        <td><form th:method="GET" th:action="@{/find/{id}(id=${user.getId()})}">
             <input type="submit" value="Update">
         </form></td>
         <td><form th:method="DELETE" th:action="@{/delete/{id}(id=${user.getId()})}">

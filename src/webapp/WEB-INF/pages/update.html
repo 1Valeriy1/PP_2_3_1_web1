@@ -6,8 +6,9 @@
 <body>
 <div>
   <h2>Update User</h2>
-  <form action="#" th:action="@{/save}" th:object="${user}"
+  <form action="#" th:action="@{/update}" th:object="${user}"
         method="POST">
+    <input type="hidden" name="_method" value="put">
 
     <input type="hidden" th:field="*{id}" />
 

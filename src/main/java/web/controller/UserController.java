@@ -30,8 +30,14 @@ public class UserController {
         return "redirect:/";
     }
 
+    @PutMapping("/update")
+    public String update(@ModelAttribute("user") User user) {
+        service.upd(user);
+        return "redirect:/";
+    }
+
     // изменеие юзера
-    @PutMapping("/find/{id}")
+    @GetMapping("/find/{id}")
     public String find(@PathVariable( value = "id") long id, Model model) {
         User user = service.getUserById(id);
         model.addAttribute("user", user);
